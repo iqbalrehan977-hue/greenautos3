@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>User Dashboard | Green Autos</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/sidebar.css">
+<link rel="stylesheet" href="../css/dashboard.css">
+
+</head>
+
+<body>
+
+<!-- USER SIDEBAR -->
+
+<div id="sidebar"></div>
+
+<!-- MAIN CONTENT -->
+
+<div class="main-content">
+
+<nav class="navbar navbar-expand-lg bg-white shadow-sm rounded mb-4">
+
+<div class="container-fluid">
+
+<button class="btn btn-success d-lg-none">
+<i class="bi bi-list"></i>
+</button>
+
+<div>
+
+<h4 class="mb-0">
+User Dashboard
+</h4>
+
+<small class="text-muted">
+Welcome Staff
+</small>
+
+</div>
+
+<div class="dropdown">
+
+<button class="btn btn-light dropdown-toggle"
+data-bs-toggle="dropdown">
+
+<i class="bi bi-person-circle"></i>
+
+<span id="userName">
+User
+</span>
+
+</button>
+
+<ul class="dropdown-menu dropdown-menu-end">
+
+<li>
+<a class="dropdown-item" href="profile.html">
+<i class="bi bi-person"></i>
+Profile
+</a>
+</li>
+
+<li><hr class="dropdown-divider"></li>
+
+<li>
+<a class="dropdown-item" href="#" onclick="logoutUser(event); return false;">
+<i class="bi bi-box-arrow-right"></i>
+Logout
+</a>
+</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</nav>
+<!-- ==========================================
+     USER STATISTICS CARDS
+========================================== -->
+
+<div class="row g-4">
+
+    <!-- Vehicles -->
+
+    <div class="col-xl-3 col-md-6">
+
+        <div class="card dashboard-card shadow-sm">
+
+            <div class="card-body">
+
+                <div class="d-flex justify-content-between">
+
+                    <div>
+
+                        <h6 class="text-muted">
+                            Total Vehicles
+                        </h6>
+
+                        <h2 id="vehicleCount">
+                            0
+                        </h2>
+
+                    </div>
+
+                    <i class="bi bi-car-front-fill display-5 text-success"></i>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Drivers -->
+
+    <div class="col-xl-3 col-md-6">
+
+        <div class="card dashboard-card shadow-sm">
+
+            <div class="card-body">
+
+                <div class="d-flex justify-content-between">
+
+                    <div>
+
+                        <h6 class="text-muted">
+                            Total Drivers
+                        </h6>
+
+                        <h2 id="driverCount">
+                            0
+                        </h2>
+
+                    </div>
+
+                    <i class="bi bi-person-badge display-5 text-success"></i>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Maintenance -->
+
+    <div class="col-xl-3 col-md-6">
+
+        <div class="card dashboard-card shadow-sm">
+
+            <div class="card-body">
+
+                <div class="d-flex justify-content-between">
+
+                    <div>
+
+                        <h6 class="text-muted">
+                            Maintenance
+                        </h6>
+
+                        <h2 id="maintenanceCount">
+                            0
+                        </h2>
+
+                    </div>
+
+                    <i class="bi bi-tools display-5 text-success"></i>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Expenses -->
+
+    <div class="col-xl-3 col-md-6">
+
+        <div class="card dashboard-card shadow-sm">
+
+            <div class="card-body">
+
+                <div class="d-flex justify-content-between">
+
+                    <div>
+
+                        <h6 class="text-muted">
+                            Total Expenses
+                        </h6>
+
+                        <h2 id="expenseCount">
+                            0
+                        </h2>
+
+                    </div>
+
+                    <i class="bi bi-cash-stack display-5 text-success"></i>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!-- ==========================================
+     QUICK ACTIONS & MODULES
+========================================== -->
+
+<div class="row g-4 mt-2">
+
+    <!-- Quick Actions -->
+
+    <div class="col-lg-4">
+
+        <div class="card shadow-sm h-100">
+
+            <div class="card-header bg-success text-white">
+
+                <h5 class="mb-0">
+
+                    <i class="bi bi-lightning-charge"></i>
+
+                    Quick Actions
+
+                </h5>
+
+            </div>
+
+            <div class="card-body">
+
+                <div class="d-grid gap-2">
+
+                    <a href="vehicles.html" class="btn btn-success">
+
+                        <i class="bi bi-plus-circle"></i>
+
+                        Add Vehicle
+
+                    </a>
+
+                    <a href="drivers.html" class="btn btn-success">
+
+                        <i class="bi bi-person-plus"></i>
+
+                        Add Driver
+
+                    </a>
+
+                    <a href="maintenance.html" class="btn btn-success">
+
+                        <i class="bi bi-tools"></i>
+
+                        Add Maintenance
+
+                    </a>
+
+                    <a href="expenses.html" class="btn btn-success">
+
+                        <i class="bi bi-wallet2"></i>
+
+                        Add Expense
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Modules -->
+
+    <div class="col-lg-8">
+
+        <div class="card shadow-sm h-100">
+
+            <div class="card-header">
+
+                <h5 class="mb-0">
+
+                    <i class="bi bi-grid"></i>
+
+                    Management Modules
+
+                </h5>
+
+            </div>
+
+            <div class="card-body">
+
+                <div class="row g-3">
+
+                    <div class="col-md-4">
+
+                        <a href="vehicles.html" class="btn btn-outline-success w-100 p-3">
+
+                            <i class="bi bi-car-front-fill fs-3"></i>
+
+                            <br>
+
+                            Vehicles
+
+                        </a>
+
+                    </div>
+
+                    <div class="col-md-4">
+
+                        <a href="drivers.html" class="btn btn-outline-success w-100 p-3">
+
+                            <i class="bi bi-person-badge fs-3"></i>
+
+                            <br>
+
+                            Drivers
+
+                        </a>
+
+                    </div>
+
+                    <div class="col-md-4">
+
+                        <a href="maintenance.html" class="btn btn-outline-success w-100 p-3">
+
+                            <i class="bi bi-tools fs-3"></i>
+
+                            <br>
+
+                            Maintenance
+
+                        </a>
+
+                    </div>
+
+                    <div class="col-md-4">
+
+                        <a href="expenses.html" class="btn btn-outline-success w-100 p-3">
+
+                            <i class="bi bi-cash-stack fs-3"></i>
+
+                            <br>
+
+                            Expenses
+
+                        </a>
+
+                    </div>
+
+                    <div class="col-md-4">
+
+                        <a href="reports.html" class="btn btn-outline-success w-100 p-3">
+
+                            <i class="bi bi-bar-chart-fill fs-3"></i>
+
+                            <br>
+
+                            Reports
+
+                        </a>
+
+                    </div>
+
+                    <div class="col-md-4">
+
+                        <a href="profile.html" class="btn btn-outline-success w-100 p-3">
+
+                            <i class="bi bi-person-circle fs-3"></i>
+
+                            <br>
+
+                            Profile
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!-- ==========================================
+     RECENT ACTIVITY
+========================================== -->
+
+<div class="card shadow-sm mt-4">
+
+    <div class="card-header d-flex justify-content-between">
+
+        <h5 class="mb-0">
+
+            <i class="bi bi-clock-history"></i>
+
+            Recent Activity
+
+        </h5>
+
+    </div>
+
+    <div class="card-body table-responsive">
+
+        <table class="table table-hover">
+
+            <thead>
+
+                <tr>
+
+                    <th>#</th>
+                    <th>User</th>
+                    <th>Action</th>
+                    <th>Date</th>
+                    <th>Status</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="activityTable">
+
+                <tr>
+
+                    <td colspan="5" class="text-center text-muted">
+
+                        No Activity Found
+
+                    </td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+
+
+<!-- ==========================================
+     USER INFORMATION
+========================================== -->
+
+<div class="row mt-4">
+
+    <div class="col-md-6">
+
+        <div class="card shadow-sm">
+
+            <div class="card-body">
+
+                <h5>
+
+                    <i class="bi bi-person-circle text-success"></i>
+
+                    User Information
+
+                </h5>
+
+                <hr>
+
+                <p>
+                    Name :
+                    <b id="staffName">User</b>
+                </p>
+
+                <p>
+                    Role :
+                    <b>Staff</b>
+                </p>
+
+                <p>
+                    Status :
+                    <b class="text-success">Active</b>
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="col-md-6">
+
+        <div class="card shadow-sm">
+
+            <div class="card-body">
+
+                <h5>
+
+                    <i class="bi bi-shield-check text-success"></i>
+
+                    Permissions
+
+                </h5>
+
+                <hr>
+
+                <p>✔ Vehicle Management</p>
+
+                <p>✔ Driver Management</p>
+
+                <p>✔ Maintenance Management</p>
+
+                <p>✔ Expense Management</p>
+
+                <p>✔ Reports Access</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- ==========================================
+     FOOTER
+========================================== -->
+
+<footer class="mt-5 py-3 text-center text-muted">
+
+    <p class="mb-0">
+
+        © 2026 Green Autos Fleet Management System
+
+    </p>
+
+</footer>
+
+</div>
+<!-- END MAIN CONTENT -->
+ <!-- ==========================================
+     JAVASCRIPT FILES
+========================================== -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
+<script src="../js/storage.js"></script>
+
+<script src="../js/userGuard.js"></script>
+<script src="../js/userSidebar.js"></script>
+
+<script>
+
+/* ==========================================
+   Logout Function
+========================================== */
+
+// Use centralized logout handler from storage.js
+// The logout link already calls logoutUser(event); which will use the centralized function.
+
+</script>
+
+<script>
+
+/* ==========================================
+   Load Current User
+========================================== */
+
+const currentUser = getCurrentUser();
+if (currentUser) {
+    const userNameEl = document.getElementById('userName');
+    if (userNameEl) userNameEl.innerHTML = currentUser.name || '';
+    const staffNameEl = document.getElementById('staffName');
+    if (staffNameEl) staffNameEl.innerHTML = currentUser.name || '';
+}
+
+
+/* ==========================================
+   Dashboard Counts
+========================================== */
+
+function updateUserDashboard() {
+    let vehicles = getVehicles();
+    let drivers = getDrivers();
+    let maintenance = getMaintenance();
+    let expenses = getExpenses();
+
+    document.getElementById("vehicleCount").innerHTML =
+    vehicles.length;
+
+    document.getElementById("driverCount").innerHTML =
+    drivers.length;
+
+    document.getElementById("maintenanceCount").innerHTML =
+    maintenance.length;
+
+    document.getElementById("expenseCount").innerHTML =
+    expenses.length;
+}
+
+updateUserDashboard();
+
+// Listen for storage changes from other pages
+window.addEventListener('storageSync', function(e) {
+    if (e.key === StorageKeys.VEHICLES || e.key === StorageKeys.DRIVERS || 
+        e.key === StorageKeys.MAINTENANCE || e.key === StorageKeys.EXPENSES) {
+        updateUserDashboard();
+    }
+});
+
+
+/* ==========================================
+   Recent Activity
+========================================== */
+
+const activities = getStorageData(StorageKeys.ACTIVITY_LOGS, []);
+const activityTable = document.getElementById('activityTable');
+if (activities && activities.length > 0 && activityTable){
+    activityTable.innerHTML = '';
+    activities.slice(-5).reverse().forEach((activity, index)=>{
+        activityTable.innerHTML += `
+            <tr>
+                <td>${index+1}</td>
+                <td>${activity.user}</td>
+                <td>${activity.message}</td>
+                <td>${activity.date}</td>
+                <td><span class="badge bg-success">${activity.type}</span></td>
+            </tr>
+        `;
+    });
+}
+
+</script>
+
+</body>
+</html>

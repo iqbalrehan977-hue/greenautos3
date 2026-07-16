@@ -1,0 +1,316 @@
+/* ==========================================
+   Green Autos Fleet Management System
+
+   Dashboard CSS
+========================================== */
+
+
+
+/* ==========================================
+   DASHBOARD CARDS
+========================================== */
+
+
+.dashboard-card{
+
+
+border:none;
+
+border-radius:15px;
+
+background:white;
+
+transition:.3s;
+
+overflow:hidden;
+
+
+}
+
+
+
+.dashboard-card:hover{
+
+
+transform:translateY(-5px);
+
+box-shadow:
+
+0 10px 25px rgba(0,0,0,.15);
+
+
+}
+
+
+
+
+
+.dashboard-card h2{
+
+
+font-weight:700;
+
+color:#198754;
+
+
+}
+
+
+
+
+
+.dashboard-card h6{
+
+
+font-size:14px;
+
+text-transform:uppercase;
+
+letter-spacing:.5px;
+
+
+}
+
+
+
+
+
+
+
+
+/* ==========================================
+   NAVBAR
+========================================== */
+
+
+
+.navbar{
+
+
+border-radius:12px;
+
+padding:15px 20px;
+
+
+}
+
+
+
+
+.navbar h4{
+
+
+font-weight:700;
+
+color:#0f5132;
+
+
+}
+
+
+
+
+
+
+/* ==========================================
+   CARDS GENERAL
+========================================== */
+
+
+.card{
+
+
+border-radius:15px;
+
+border:none;
+
+
+}
+
+
+
+.card-header{
+
+
+background:white;
+
+font-weight:600;
+
+border-bottom:1px solid #eee;
+
+
+}
+
+
+
+
+
+
+
+/* ==========================================
+   QUICK ACTION BUTTONS
+========================================== */
+
+
+.btn-success{
+
+
+background:#198754;
+
+border:none;
+
+
+}
+
+
+
+.btn-success:hover{
+
+
+background:#146c43;
+
+
+}
+
+
+
+
+
+
+/* ==========================================
+   TABLE STYLE
+========================================== */
+
+
+.table{
+
+
+vertical-align:middle;
+
+
+}
+
+
+
+.table thead{
+
+
+background:#41ca10;
+
+color:white;
+
+
+}
+
+
+
+.table tbody tr:hover{
+
+
+background:#f1f8f4;
+
+
+}
+
+
+
+
+
+.badge{
+
+
+padding:7px 12px;
+
+border-radius:20px;
+
+
+}
+
+
+
+
+
+
+/* ==========================================
+   SYSTEM INFORMATION
+========================================== */
+
+
+.card-body p{
+
+
+font-size:15px;
+
+color:#555;
+
+
+}
+
+
+
+
+.card-body p b{
+
+
+color:#198754;
+
+
+}
+
+
+
+
+
+
+/* ==========================================
+   FOOTER
+========================================== */
+
+
+footer{
+
+
+font-size:14px;
+
+background:white;
+
+border-radius:10px;
+
+
+}
+
+
+
+
+
+
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+
+@media(max-width:768px){
+
+
+
+.dashboard-card{
+
+
+margin-bottom:15px;
+
+
+}
+
+
+
+.main-content{
+
+
+padding:15px;
+
+
+}
+
+
+}

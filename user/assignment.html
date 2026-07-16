@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Assignment | Green Autos</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/sidebar.css">
+<link rel="stylesheet" href="../css/dashboard.css">
+
+</head>
+
+<body>
+
+<!-- USER SIDEBAR -->
+
+<div id="sidebar"></div>
+
+<!-- MAIN CONTENT -->
+
+<div class="main-content">
+
+<nav class="navbar navbar-expand-lg bg-white shadow-sm rounded mb-4">
+
+<div class="container-fluid">
+
+<button class="btn btn-success d-lg-none">
+<i class="bi bi-list"></i>
+</button>
+
+<div>
+
+<h4 class="mb-0">
+Vehicle Assignments
+</h4>
+
+<small class="text-muted">
+Manage vehicle and driver assignments
+</small>
+
+</div>
+
+<div class="dropdown">
+
+<button class="btn btn-light dropdown-toggle"
+data-bs-toggle="dropdown">
+
+<i class="bi bi-person-circle"></i>
+
+<span id="userName">
+User
+</span>
+
+</button>
+
+<ul class="dropdown-menu dropdown-menu-end">
+
+<li>
+<a class="dropdown-item" href="profile.html">
+<i class="bi bi-person"></i>
+Profile
+</a>
+</li>
+
+<li><hr class="dropdown-divider"></li>
+
+<li>
+<a class="dropdown-item" href="#" onclick="logoutUser(event); return false;">
+<i class="bi bi-box-arrow-right"></i>
+Logout
+</a>
+</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</nav>
+
+<!-- SEARCH AND ADD BUTTON -->
+
+<div class="card shadow-sm mb-4">
+
+<div class="card-body">
+
+<div class="row">
+
+<div class="col-md-6">
+
+<input
+type="text"
+id="searchAssignment"
+class="form-control"
+placeholder="Search vehicle or driver">
+
+</div>
+
+<div class="col-md-6 text-end">
+
+<button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#assignmentModal">
+<i class="bi bi-plus-circle"></i>
+New Assignment
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ASSIGNMENTS TABLE -->
+
+<div class="card shadow-sm">
+
+<div class="card-header">
+
+<h5>
+<i class="bi bi-clock-history"></i>
+Assignment List
+</h5>
+
+</div>
+
+<div class="card-body table-responsive">
+
+<table class="table table-hover">
+
+<thead>
+
+<tr>
+
+<th>#</th>
+<th>Vehicle</th>
+<th>Driver</th>
+<th>Start Date</th>
+<th>End Date</th>
+<th>Status</th>
+<th>Action</th>
+
+</tr>
+
+</thead>
+
+<tbody id="assignmentTable">
+
+<tr>
+
+<td colspan="7" class="text-center text-muted">
+
+No Assignments Found
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+<!-- ADD ASSIGNMENT MODAL -->
+
+<div class="modal fade" id="assignmentModal">
+
+<div class="modal-dialog modal-lg">
+
+<div class="modal-content">
+
+<div class="modal-header bg-success text-white">
+
+<h5 class="modal-title">
+
+<i class="bi bi-clock-history"></i>
+
+New Assignment
+
+</h5>
+
+<button 
+type="button"
+class="btn-close"
+data-bs-dismiss="modal">
+
+</button>
+
+</div>
+
+<div class="modal-body">
+
+<form id="assignmentForm">
+
+<div class="row">
+
+<div class="col-md-6 mb-3">
+
+<label class="form-label">
+Vehicle
+</label>
+
+<select
+id="assignmentVehicle"
+class="form-select"
+required>
+
+<option value="">Select Vehicle</option>
+
+</select>
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<label class="form-label">
+Driver
+</label>
+
+<select
+id="assignmentDriver"
+class="form-select"
+required>
+
+<option value="">Select Driver</option>
+
+</select>
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<label class="form-label">
+Start Date
+</label>
+
+<input
+type="date"
+id="assignmentStartDate"
+class="form-control"
+required>
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<label class="form-label">
+End Date
+</label>
+
+<input
+type="date"
+id="assignmentEndDate"
+class="form-control">
+
+</div>
+
+<div class="col-md-12 mb-3">
+
+<label class="form-label">
+Notes
+</label>
+
+<textarea
+id="assignmentNotes"
+class="form-control"
+placeholder="Additional notes"
+rows="3"></textarea>
+
+</div>
+
+</div>
+
+</form>
+
+</div>
+
+<div class="modal-footer">
+
+<button
+class="btn btn-secondary"
+data-bs-dismiss="modal">
+
+Close
+
+</button>
+
+<button
+class="btn btn-success"
+onclick="saveAssignment()">
+
+Save Assignment
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- FOOTER -->
+
+<footer class="mt-5 py-3 text-center text-muted">
+
+<p class="mb-0">
+
+© 2026 Green Autos Fleet Management System
+
+</p>
+
+</footer>
+
+</div>
+
+<!-- END MAIN CONTENT -->
+
+<!-- JAVASCRIPT FILES -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
+<script src="../js/storage.js"></script>
+
+<script src="../js/userGuard.js"></script>
+<script src="../js/userSidebar.js"></script>
+
+<script>
+(function(){
+    const user = window.getCurrentUser && window.getCurrentUser();
+    if(user){
+        const el = document.getElementById('userName');
+        if(el) el.innerText = user.name || user.username || 'User';
+    }
+
+    let editMode = false;
+    let editId = null;
+    let assignments = window.getAssignments ? window.getAssignments() : [];
+    let vehicleList = window.getVehicles ? window.getVehicles() : [];
+    let driverList = window.getDrivers ? window.getDrivers() : [];
+    const table = document.getElementById('assignmentTable');
+
+    function renderAssignments(){
+        if(!table) return;
+        if(!Array.isArray(assignments) || assignments.length === 0){
+            table.innerHTML = '<tr><td colspan="7" class="text-center text-muted">No Assignments Found</td></tr>';
+            return;
+        }
+        table.innerHTML = '';
+        assignments.forEach((a, i) => {
+            const vehicleName = a.vehicleName || ((vehicleList.find(v=>String(v.id)===String(a.vehicleId))||{}).name) || a.vehicle || '-';
+            const driverName = a.driverName || ((driverList.find(d=>String(d.id)===String(a.driverId))||{}).name) || a.driver || '-';
+            table.insertAdjacentHTML('beforeend', `
+                <tr>
+                    <td>${i+1}</td>
+                    <td>${vehicleName}</td>
+                    <td>${driverName}</td>
+                    <td>${a.assignmentDate || a.startDate || '-'}</td>
+                    <td>${a.returnDate || a.endDate || 'Ongoing'}</td>
+                    <td><span class="badge bg-${a.status === 'Active' ? 'success' : 'secondary'}">${a.status || 'Active'}</span></td>
+                    <td>
+                        <button class="btn btn-sm btn-primary" onclick="editAssignment('${a.id}')"><i class="bi bi-pencil"></i></button>
+                        <button class="btn btn-sm btn-danger" onclick="deleteAssignment('${a.id}')"><i class="bi bi-trash"></i></button>
+                    </td>
+                </tr>
+            `);
+        });
+    }
+
+    function renderVehiclesAndDrivers(){
+        const vSel = document.getElementById('assignmentVehicle');
+        const dSel = document.getElementById('assignmentDriver');
+        if(vSel){
+            vSel.innerHTML = '<option value="">Select Vehicle</option>';
+            vehicleList.forEach(v=> vSel.insertAdjacentHTML('beforeend', `<option value="${v.id}">${v.name}</option>`));
+        }
+        if(dSel){
+            dSel.innerHTML = '<option value="">Select Driver</option>';
+            driverList.forEach(d=> dSel.insertAdjacentHTML('beforeend', `<option value="${d.id}">${d.name}</option>`));
+        }
+    }
+
+    window.saveAssignment = function(){
+        const vehicleId = document.getElementById('assignmentVehicle').value;
+        const driverId = document.getElementById('assignmentDriver').value;
+        const startDate = document.getElementById('assignmentStartDate').value;
+        const endDate = document.getElementById('assignmentEndDate').value;
+        const notes = document.getElementById('assignmentNotes').value.trim();
+        if(!vehicleId || !driverId || !startDate){ alert('Please fill all required fields'); return; }
+        const vehicle = vehicleList.find(v=>String(v.id)===String(vehicleId))||{};
+        const driver = driverList.find(d=>String(d.id)===String(driverId))||{};
+        const all = window.getAssignments ? window.getAssignments() : [];
+
+        const rec = {
+            id: editMode ? editId : Date.now(),
+            vehicleId,
+            vehicleName: vehicle.name||'',
+            driverId,
+            driverName: driver.name||'',
+            assignmentDate: startDate,
+            returnDate: endDate,
+            status: 'Active',
+            remarks: notes,
+            vendorId: vehicle.vendorId || null,
+            updatedAt: new Date().toISOString(),
+            createdAt: editMode ? (all.find(a => String(a.id) === String(editId)) || {}).createdAt : new Date().toISOString()
+        };
+
+        if(editMode){
+            const updated = all.map(a => String(a.id) === String(editId) ? rec : a);
+            if(window.saveAssignments) window.saveAssignments(updated);
+            assignments = updated;
+            if(window.addActivityLog) window.addActivityLog('Assignment', `Assignment updated for ${vehicle.name || vehicleId}`);
+        } else {
+            all.push(rec);
+            if(window.saveAssignments) window.saveAssignments(all);
+            assignments = all;
+            if(window.addActivityLog) window.addActivityLog('Assignment', `Assigned ${vehicle.name || vehicleId} to ${driver.name || driverId}`);
+        }
+
+        editMode = false;
+        editId = null;
+        document.getElementById('assignmentForm').reset();
+        renderAssignments();
+        try{ bootstrap.Modal.getInstance(document.getElementById('assignmentModal')).hide(); }catch(e){}
+    };
+
+    window.deleteAssignment = function(id){
+        if(!confirm('Are you sure?')) return;
+        const all = (window.getAssignments ? window.getAssignments() : []).filter(a => String(a.id) !== String(id));
+        if(window.saveAssignments) window.saveAssignments(all);
+        assignments = all;
+        renderAssignments();
+        if(window.addActivityLog) window.addActivityLog('Assignment', 'Assignment deleted');
+    };
+
+    window.editAssignment = function(id){
+        const all = window.getAssignments ? window.getAssignments() : [];
+        const a = all.find(item => String(item.id) === String(id));
+        if(!a) return;
+        editMode = true;
+        editId = a.id;
+        document.getElementById('assignmentVehicle').value = a.vehicleId || a.vehicle || '';
+        document.getElementById('assignmentDriver').value = a.driverId || a.driver || '';
+        document.getElementById('assignmentStartDate').value = a.assignmentDate || a.startDate || '';
+        document.getElementById('assignmentEndDate').value = a.returnDate || a.endDate || '';
+        document.getElementById('assignmentNotes').value = a.remarks || a.notes || '';
+        try{ bootstrap.Modal.getOrCreateInstance(document.getElementById('assignmentModal')).show(); }catch(e){}
+    };
+
+    document.getElementById('searchAssignment').addEventListener('keyup', function(e){
+        const q = e.target.value.toLowerCase();
+        document.querySelectorAll('#assignmentTable tr').forEach(row => {
+            row.style.display = row.innerText.toLowerCase().includes(q) ? '' : 'none';
+        });
+    });
+
+    renderVehiclesAndDrivers();
+    renderAssignments();
+
+    window.addEventListener('storageSync', (ev) => {
+        const key = ev && ev.detail && ev.detail.key;
+        if(!key) return;
+        if([StorageKeys.ASSIGNMENTS, StorageKeys.VEHICLES, StorageKeys.DRIVERS, StorageKeys.CURRENT_USER].includes(key)){
+            assignments = window.getAssignments ? window.getAssignments() : [];
+            vehicleList = window.getVehicles ? window.getVehicles() : [];
+            driverList = window.getDrivers ? window.getDrivers() : [];
+            renderVehiclesAndDrivers();
+            renderAssignments();
+        }
+    });
+})();
+</script>
+
+</body>
+
+</html>
+

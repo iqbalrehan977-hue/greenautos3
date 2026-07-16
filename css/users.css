@@ -1,0 +1,257 @@
+/* ==========================================
+   Green Autos Fleet Management System
+   Users CSS
+========================================== */
+
+
+.page-title h2{
+
+    color:#198754;
+
+    font-weight:800;
+
+}
+
+
+/* Add User Button */
+
+.page-title .btn{
+
+    height:50px;
+
+    border-radius:12px;
+
+    font-weight:600;
+
+}
+
+
+
+
+/* Search */
+
+#searchUser{
+
+    height:50px;
+
+    border-radius:12px;
+
+    padding-left:20px;
+
+}
+
+
+
+
+
+#searchUser:focus{
+
+    border-color:#198754;
+
+    box-shadow:none;
+
+}
+
+
+
+
+/* Table Box */
+
+.section{
+
+    background:#fff;
+
+    padding:25px;
+
+    border-radius:20px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+}
+
+
+
+
+
+.table thead th{
+
+    background:#198754;
+
+    color:white;
+
+    padding:15px;
+
+}
+
+
+
+
+.table tbody td{
+
+    padding:15px;
+
+    vertical-align:middle;
+
+}
+
+
+
+
+.table tbody tr:hover{
+
+    background:#f2fff6;
+
+}
+
+
+
+
+/* Profile Circle */
+
+
+.user-avatar{
+
+    width:40px;
+
+    height:40px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:#198754;
+
+    color:white;
+
+    font-weight:700;
+
+}
+
+
+
+/* Status */
+
+.status-active{
+
+    background:#198754;
+
+    color:white;
+
+    padding:6px 15px;
+
+    border-radius:20px;
+
+    font-size:13px;
+
+}
+
+
+
+.status-inactive{
+
+    background:#dc3545;
+
+    color:white;
+
+    padding:6px 15px;
+
+    border-radius:20px;
+
+    font-size:13px;
+
+}
+
+
+
+
+
+/* Action Buttons */
+
+
+.action-btn{
+
+    width:35px;
+
+    height:35px;
+
+    border-radius:8px;
+
+    border:none;
+
+}
+
+
+
+.edit-btn{
+
+    background:#ffc107;
+
+    color:white;
+
+}
+
+
+
+.delete-btn{
+
+    background:#dc3545;
+
+    color:white;
+
+}
+
+
+
+
+/* Modal */
+
+
+.modal-content{
+
+    border-radius:20px;
+
+}
+
+
+
+.modal-header{
+
+    background:#198754;
+
+    color:white;
+
+}
+
+
+
+.modal .form-control{
+
+    height:48px;
+
+    border-radius:10px;
+
+}
+
+
+
+
+
+@media(max-width:768px){
+
+
+    .page-title{
+
+        flex-direction:column;
+
+        align-items:flex-start !important;
+
+        gap:15px;
+
+    }
+
+
+}

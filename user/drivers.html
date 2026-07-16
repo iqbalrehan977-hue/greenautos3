@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Drivers | Green Autos</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/sidebar.css">
+<link rel="stylesheet" href="../css/dashboard.css">
+
+</head>
+
+<body>
+
+<!-- USER SIDEBAR -->
+
+<div id="sidebar"></div>
+
+<!-- MAIN CONTENT -->
+
+<div class="main-content">
+
+<nav class="navbar navbar-expand-lg bg-white shadow-sm rounded mb-4">
+
+<div class="container-fluid">
+
+<button class="btn btn-success d-lg-none">
+<i class="bi bi-list"></i>
+</button>
+
+<div>
+
+<h4 class="mb-0">
+Drivers Management
+</h4>
+
+<small class="text-muted">
+Manage all drivers
+</small>
+
+</div>
+
+<div class="dropdown">
+
+<button class="btn btn-light dropdown-toggle"
+data-bs-toggle="dropdown">
+
+<i class="bi bi-person-circle"></i>
+
+<span id="userName">
+User
+</span>
+
+</button>
+
+<ul class="dropdown-menu dropdown-menu-end">
+
+<li>
+<a class="dropdown-item" href="profile.html">
+<i class="bi bi-person"></i>
+Profile
+</a>
+</li>
+
+<li><hr class="dropdown-divider"></li>
+
+<li>
+<a class="dropdown-item" href="#" onclick="logoutUser(event); return false;">
+<i class="bi bi-box-arrow-right"></i>
+Logout
+</a>
+</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</nav>
+
+<!-- SEARCH AND ADD BUTTON -->
+
+<div class="card shadow-sm mb-4">
+
+<div class="card-body">
+
+<div class="row">
+
+<div class="col-md-6">
+
+<input
+type="text"
+id="searchDriver"
+class="form-control"
+placeholder="Search driver name or license number">
+
+</div>
+
+<div class="col-md-6 text-end">
+
+<button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#driverModal">
+<i class="bi bi-plus-circle"></i>
+Add Driver
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- DRIVERS TABLE -->
+
+<div class="card shadow-sm">
+
+<div class="card-header">
+
+<h5>
+<i class="bi bi-person-badge"></i>
+Driver List
+</h5>
+
+</div>
+
+<div class="card-body table-responsive">
+
+<table class="table table-hover">
+
+<thead>
+
+<tr>
+
+<th>#</th>
+<th>Name</th>
+<th>License Number</th>
+<th>Phone</th>
+<th>Status</th>
+<th>Action</th>
+
+</tr>
+
+</thead>
+
+<tbody id="driverTable">
+
+<tr>
+
+<td colspan="6" class="text-center text-muted">
+
+No Drivers Found
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+<!-- ADD DRIVER MODAL -->
+
+<div class="modal fade" id="driverModal">
+
+<div class="modal-dialog modal-lg">
+
+<div class="modal-content">
+
+<div class="modal-header bg-success text-white">
+
+<h5 class="modal-title">
+
+<i class="bi bi-person-badge"></i>
+
+Add Driver
+
+</h5>
+
+<button 
+type="button"
+class="btn-close"
+data-bs-dismiss="modal">
+
+</button>
+
+</div>
+
+<div class="modal-body">
+
+<form id="driverForm">
+
+<div class="row">
+
+<div class="col-md-6 mb-3">
+
+<label class="form-label">
+Driver Name
+</label>
+
+<input
+type="text"
+id="driverName"
+class="form-control"
+placeholder="John Doe"
+required>
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<label class="form-label">
+License Number
+</label>
+
+<input
+type="text"
+id="driverLicense"
+class="form-control"
+placeholder="DL-123456"
+required>
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<label class="form-label">
+Phone
+</label>
+
+<input
+type="tel"
+id="driverPhone"
+class="form-control"
+placeholder="03001234567"
+required>
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<label class="form-label">
+Email
+</label>
+
+<input
+type="email"
+id="driverEmail"
+class="form-control"
+placeholder="driver@example.com">
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<label class="form-label">
+Address
+</label>
+ 
+<input
+type="text"
+id="driverAddress"
+class="form-control"
+placeholder="Street address">
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<label class="form-label">
+Status
+</label>
+
+<select
+id="driverStatus"
+class="form-select">
+
+<option value="Active">
+Active
+</option>
+
+<option value="Inactive">
+Inactive
+</option>
+
+</select>
+
+</div>
+
+</div>
+
+</form>
+
+</div>
+
+<div class="modal-footer">
+
+<button
+class="btn btn-secondary"
+data-bs-dismiss="modal">
+
+Close
+
+</button>
+
+<button
+type="button"
+class="btn btn-success"
+onclick="saveDriver()">
+        
+Save Driver
+        
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- FOOTER -->
+
+<footer class="mt-5 py-3 text-center text-muted">
+
+<p class="mb-0">
+
+© 2026 Green Autos Fleet Management System
+
+</p>
+
+</footer>
+
+</div>
+
+<!-- END MAIN CONTENT -->
+
+<!-- JAVASCRIPT FILES -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
+<script src="../js/storage.js"></script>
+
+<script src="../js/userGuard.js"></script>
+<script src="../js/userSidebar.js"></script>
+
+<script>
+(function(){
+    const user = window.getCurrentUser && window.getCurrentUser();
+    if(user){
+        const el = document.getElementById('userName');
+        if(el) el.innerText = user.name || user.username || 'User';
+    }
+
+    let editMode = false;
+    let editId = null;
+    let driverList = window.getDrivers ? window.getDrivers() : [];
+    const table = document.getElementById('driverTable');
+
+    function renderDrivers(){
+        if(!table) return;
+        if(!Array.isArray(driverList) || driverList.length === 0){
+            table.innerHTML = '<tr><td colspan="6" class="text-center text-muted">No Drivers Found</td></tr>';
+            return;
+        }
+        table.innerHTML = '';
+        driverList.forEach((d, i) => {
+            table.insertAdjacentHTML('beforeend', `
+                <tr>
+                    <td>${i+1}</td>
+                    <td>${d.name}</td>
+                    <td>${d.license || '-'}</td>
+                    <td>${d.phone || '-'}</td>
+                    <td><span class="badge bg-${d.status === 'Active' ? 'success' : 'secondary'}">${d.status}</span></td>
+                    <td>
+                        <button class="btn btn-sm btn-primary" onclick="editDriver('${d.id}')"><i class="bi bi-pencil"></i></button>
+                        <button class="btn btn-sm btn-danger" onclick="deleteDriver('${d.id}')"><i class="bi bi-trash"></i></button>
+                    </td>
+                </tr>
+            `);
+        });
+    }
+
+    window.saveDriver = function(){
+        const name = document.getElementById('driverName').value.trim();
+        const license = document.getElementById('driverLicense').value.trim();
+        const phone = document.getElementById('driverPhone').value.trim();
+        const email = document.getElementById('driverEmail').value.trim();
+        const address = document.getElementById('driverAddress').value.trim();
+        const status = document.getElementById('driverStatus').value || 'Active';
+
+        if(!name || !license || !phone){ alert('Please fill all required fields'); return; }
+        const all = window.getDrivers ? window.getDrivers() : [];
+
+        if(editMode){
+            const updated = all.map((d) => String(d.id) === String(editId) ? Object.assign({}, d, {
+                name,
+                license,
+                phone,
+                email,
+                address,
+                status,
+                updatedAt: new Date().toISOString()
+            }) : d);
+            if(window.saveDrivers) window.saveDrivers(updated);
+            if(window.addActivityLog) window.addActivityLog('Driver', `Driver updated: ${name}`);
+            editMode = false;
+            editId = null;
+            driverList = updated;
+        } else {
+            const newDriver = {
+                id: Date.now(),
+                name,
+                license,
+                phone,
+                email,
+                address,
+                status,
+                createdAt: new Date().toISOString(),
+                updatedAt: new Date().toISOString()
+            };
+            all.push(newDriver);
+            if(window.saveDrivers) window.saveDrivers(all);
+            if(window.addActivityLog) window.addActivityLog('Driver', `Driver added: ${name}`);
+            driverList = all;
+        }
+
+        document.getElementById('driverForm').reset();
+        renderDrivers();
+        try{ bootstrap.Modal.getInstance(document.getElementById('driverModal')).hide(); }catch(e){}
+    };
+
+    window.deleteDriver = function(id){
+        if(!confirm('Are you sure?')) return;
+        const all = (window.getDrivers ? window.getDrivers() : []).filter(d => String(d.id) !== String(id));
+        if(window.saveDrivers) window.saveDrivers(all);
+        if(window.addActivityLog) window.addActivityLog('Driver', 'Driver deleted');
+        driverList = all;
+        renderDrivers();
+    };
+
+    window.editDriver = function(id){
+        const all = window.getDrivers ? window.getDrivers() : [];
+        const d = all.find(x => String(x.id) === String(id));
+        if(!d) return;
+        editMode = true;
+        editId = d.id;
+        document.getElementById('driverName').value = d.name || '';
+        document.getElementById('driverLicense').value = d.license || '';
+        document.getElementById('driverPhone').value = d.phone || '';
+        document.getElementById('driverEmail').value = d.email || '';
+        document.getElementById('driverAddress').value = d.address || '';
+        document.getElementById('driverStatus').value = d.status || 'Active';
+        try{ bootstrap.Modal.getOrCreateInstance(document.getElementById('driverModal')).show(); }catch(e){}
+    };
+
+    document.getElementById('searchDriver').addEventListener('keyup', function(e){
+        const q = e.target.value.toLowerCase();
+        document.querySelectorAll('#driverTable tr').forEach(row => {
+            row.style.display = row.innerText.toLowerCase().includes(q) ? '' : 'none';
+        });
+    });
+
+    renderDrivers();
+
+    window.addEventListener('storageSync', (ev) => {
+        const key = ev && ev.detail && ev.detail.key;
+        if(!key) return;
+        if([StorageKeys.DRIVERS, StorageKeys.CURRENT_USER].includes(key)){
+            driverList = window.getDrivers ? window.getDrivers() : [];
+            renderDrivers();
+        }
+    });
+})();
+</script>
+
+</body>
+
+</html>
+

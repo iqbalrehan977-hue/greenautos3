@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Expenses | Green Autos</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/sidebar.css">
+<link rel="stylesheet" href="../css/dashboard.css">
+
+</head>
+
+<body>
+
+<!-- USER SIDEBAR -->
+
+<div id="sidebar"></div>
+
+<!-- MAIN CONTENT -->
+
+<div class="main-content">
+
+<nav class="navbar navbar-expand-lg bg-white shadow-sm rounded mb-4">
+
+<div class="container-fluid">
+
+<button class="btn btn-success d-lg-none">
+<i class="bi bi-list"></i>
+</button>
+
+<div>
+
+<h4 class="mb-0">
+Expenses Management
+</h4>
+
+<small class="text-muted">
+Track all expenses
+</small>
+
+</div>
+
+<div class="dropdown">
+
+<button class="btn btn-light dropdown-toggle"
+data-bs-toggle="dropdown">
+
+<i class="bi bi-person-circle"></i>
+
+<span id="userName">
+User
+</span>
+
+</button>
+
+<ul class="dropdown-menu dropdown-menu-end">
+
+<li>
+<a class="dropdown-item" href="profile.html">
+<i class="bi bi-person"></i>
+Profile
+</a>
+</li>
+
+<li><hr class="dropdown-divider"></li>
+
+<li>
+<a class="dropdown-item" href="#" onclick="logoutUser(event); return false;">
+<i class="bi bi-box-arrow-right"></i>
+Logout
+</a>
+</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</nav>
+
+<!-- SEARCH AND ADD BUTTON -->
+
+<div class="card shadow-sm mb-4">
+
+<div class="card-body">
+
+<div class="row">
+
+<div class="col-md-6">
+
+<input
+type="text"
+id="searchExpense"
+class="form-control"
+placeholder="Search expense description">
+
+</div>
+
+<div class="col-md-6 text-end">
+
+<button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#expenseModal">
+<i class="bi bi-plus-circle"></i>
+Add Expense
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- EXPENSES TABLE -->
+
+<div class="card shadow-sm">
+
+<div class="card-header">
+
+<h5>
+<i class="bi bi-cash-stack"></i>
+Expense List
+</h5>
+
+</div>
+
+<div class="card-body table-responsive">
+
+<table class="table table-hover">
+
+<thead>
+
+<tr>
+
+<th>#</th>
+<th>Date</th>
+<th>Category</th>
+<th>Vehicle</th>
+<th>Description</th>
+<th>Amount</th>
+<th>Action</th>
+
+</tr>
+
+</thead>
+
+<tbody id="expenseTable">
+
+<tr>
+
+<td colspan="7" class="text-center text-muted">
+
+No Expenses Found
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+<!-- ADD EXPENSE MODAL -->
+
+<div class="modal fade" id="expenseModal">
+
+<div class="modal-dialog modal-lg">
+
+<div class="modal-content">
+
+<div class="modal-header bg-success text-white">
+
+<h5 class="modal-title">
+
+<i class="bi bi-cash-stack"></i>
+
+Add Expense
+
+</h5>
+
+<button 
+type="button"
+class="btn-close"
+data-bs-dismiss="modal">
+
+</button>
+
+</div>
+
+<div class="modal-body">
+
+<form id="expenseForm" onsubmit="return false;">
+
+<div class="row">
+
+<div class="col-md-6 mb-3">
+
+<label class="form-label">
+Description
+</label>
+
+<input
+type="text"
+id="expenseDescription"
+class="form-control"
+placeholder="Fuel expenses"
+required>
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<label class="form-label">
+Vehicle
+</label>
+
+<select
+id="vehicleSelect"
+class="form-select"
+required>
+
+<option value="">Select Vehicle</option>
+
+</select>
+
+<input type="hidden" id="expenseVendorId" value="" />
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<label class="form-label">
+Category
+</label>
+
+<select
+id="expenseCategory"
+class="form-select"
+required>
+
+<option value="">Select Category</option>
+<option value="Fuel">Fuel</option>
+<option value="Maintenance">Maintenance</option>
+<option value="Repair">Repair</option>
+<option value="Other">Other</option>
+
+</select>
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<label class="form-label">
+Amount
+</label>
+
+<input
+type="number"
+id="expenseAmount"
+class="form-control"
+placeholder="1000"
+step="0.01"
+required>
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<label class="form-label">
+Date
+</label>
+
+<input
+type="date"
+id="expenseDate"
+class="form-control"
+required>
+
+</div>
+
+<div class="col-md-12 mb-3">
+
+<label class="form-label">
+Notes
+</label>
+
+<textarea
+id="expenseNotes"
+class="form-control"
+placeholder="Additional notes"
+rows="3"></textarea>
+
+</div>
+
+</div>
+
+</form>
+
+</div>
+
+<div class="modal-footer">
+
+<button
+class="btn btn-secondary"
+data-bs-dismiss="modal">
+
+Close
+
+</button>
+
+<button
+type="button"
+class="btn btn-success"
+onclick="saveExpense()">
+
+Save Expense
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- FOOTER -->
+
+<footer class="mt-5 py-3 text-center text-muted">
+
+<p class="mb-0">
+
+© 2026 Green Autos Fleet Management System
+
+</p>
+
+</footer>
+
+</div>
+
+<!-- END MAIN CONTENT -->
+
+<!-- JAVASCRIPT FILES -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
+<script src="../js/storage.js"></script>
+
+<script src="../js/userGuard.js"></script>
+<script src="../js/userSidebar.js"></script>
+<script src="../js/expenses.js"></script>
+
+<script>
+// Load current user display
+(function(){
+    const u = window.getCurrentUser && window.getCurrentUser();
+    if(u){
+        const el = document.getElementById('userName');
+        if(el) el.innerText = u.name || u.username || 'User';
+    }
+})();
+</script>
+
+</body>
+
+</html>
+

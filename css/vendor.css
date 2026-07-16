@@ -1,0 +1,177 @@
+﻿/* ==========================================
+   Green Autos Fleet Management System
+   Vendor Panel CSS
+========================================== */
+
+.vendor-header {
+    margin-bottom: 1.75rem;
+}
+
+.vendor-header h2 {
+    font-weight: 800;
+    color: #0f5132;
+    margin-bottom: 0.4rem;
+}
+
+.vendor-header p {
+    color: #556b2f;
+    line-height: 1.6;
+}
+
+.vendor-summary .card,
+.vendor-overview .card,
+.vendor-activity .card,
+.profile-card,
+.profile-form-card {
+    border-radius: 20px;
+    border: 1px solid #e9f4ec;
+    background: #ffffff;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.vendor-summary .card:hover,
+.vendor-overview .card:hover,
+.vendor-activity .card:hover,
+.profile-card:hover,
+.profile-form-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 18px 40px rgba(25, 135, 84, 0.08);
+}
+
+.vendor-summary .card-body {
+    padding: 1.6rem 1.5rem;
+}
+
+.vendor-summary .card h6 {
+    color: #6c757d;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 13px;
+    margin-bottom: 0.9rem;
+}
+
+.vendor-summary .card h2 {
+    color: #198754;
+    font-size: 2.4rem;
+    line-height: 1;
+    margin-bottom: 0;
+}
+
+.vendor-summary .card p {
+    color: #6c757d;
+    margin-top: 0.8rem;
+}
+
+.vendor-overview {
+    margin-top: 1.75rem;
+}
+
+.vendor-overview .card-header,
+.vendor-activity .card-header,
+.profile-card .card-header,
+.profile-form-card .card-header {
+    background: transparent;
+    border-bottom: 1px solid #e9f4ec;
+    padding: 1.35rem 1.6rem;
+}
+
+.vendor-overview .card-body,
+.vendor-activity .card-body,
+.profile-card .card-body,
+.profile-form-card .card-body {
+    padding: 1.5rem 1.6rem;
+}
+
+.vendor-overview .table thead {
+    background: #eff8f1;
+    color: #0f5132;
+    border-bottom: none;
+}
+
+.vendor-overview .table th,
+.vendor-overview .table td,
+.vendor-table .table th,
+.vendor-table .table td {
+    vertical-align: middle;
+    border-top: 1px solid #f1f3f5;
+}
+
+.vendor-overview .table thead th,
+.vendor-table .table thead th {
+    font-weight: 600;
+    border-bottom: 2px solid #e9f4ec;
+}
+
+.vendor-activity .activity-item {
+    padding: 1.2rem;
+    background: #f8fbf5;
+    border-radius: 16px;
+    margin-bottom: 1rem;
+}
+
+.vendor-activity .activity-item:last-child {
+    margin-bottom: 0;
+}
+
+.vendor-activity .activity-date {
+    color: #6c757d;
+    font-size: 0.95rem;
+}
+
+.profile-card .list-group-item,
+.profile-form-card .list-group-item {
+    border: none;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.profile-card .list-group-item strong {
+    color: #0f5132;
+}
+
+.vendor-form .form-control,
+.vendor-form .form-select,
+.profile-form-card .form-control,
+.profile-form-card .form-select {
+    border-radius: 12px;
+    border: 1px solid #d8e6d2;
+    box-shadow: none;
+}
+
+.vendor-form .form-control:focus,
+.vendor-form .form-select:focus,
+.profile-form-card .form-control:focus,
+.profile-form-card .form-select:focus {
+    border-color: #198754;
+    box-shadow: 0 0 0 0.2rem rgba(25, 135, 84, 0.12);
+}
+
+.vendor-table .table-hover tbody tr:hover {
+    background: #f1f8f4;
+}
+
+.vendor-empty {
+    color: #6c757d;
+    padding: 1.25rem 0;
+}
+
+.navbar.bg-white {
+    border: 1px solid #e9f4ec;
+}
+
+.navbar .btn-light {
+    border: 1px solid #d8e6d2;
+}
+
+.navbar .dropdown-toggle::after {
+    margin-left: 0.5rem;
+}
+
+@media (max-width: 767px) {
+    .vendor-header {
+        text-align: center;
+    }
+    .vendor-header .col-md-8 {
+        margin: 0 auto;
+    }
+}

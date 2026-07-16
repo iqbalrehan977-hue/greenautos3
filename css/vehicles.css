@@ -1,0 +1,302 @@
+/* ==========================================
+   Green Autos Fleet Management System
+   Vehicles CSS
+========================================== */
+
+
+/* Page Title */
+
+.page-title h2{
+
+    font-weight:800;
+
+    color:#198754;
+
+}
+
+
+
+/* Add Button */
+
+.page-title .btn{
+
+    height:50px;
+
+    padding:0 25px;
+
+    border-radius:12px;
+
+    font-weight:600;
+
+}
+
+
+
+
+
+/* Search Box */
+
+#searchVehicle{
+
+    height:50px;
+
+    border-radius:12px;
+
+    border:1px solid #ddd;
+
+    padding-left:20px;
+
+}
+
+
+
+#searchVehicle:focus{
+
+    border-color:#198754;
+
+    box-shadow:none;
+
+}
+
+
+
+
+
+
+/* Table Section */
+
+.section{
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:25px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+}
+
+
+
+
+
+/* Table */
+
+
+.table{
+
+    margin-bottom:0;
+
+}
+
+
+
+.table thead th{
+
+    background:#198754;
+
+    color:white;
+
+    font-weight:600;
+
+    padding:15px;
+
+}
+
+
+
+.table tbody td{
+
+    vertical-align:middle;
+
+    padding:15px;
+
+}
+
+
+
+
+
+.table tbody tr:hover{
+
+    background:#f4fff7;
+
+}
+
+
+
+
+
+/* Action Buttons */
+
+
+.action-btn{
+
+    width:35px;
+
+    height:35px;
+
+    border-radius:8px;
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    margin-right:5px;
+
+    border:none;
+
+}
+
+
+
+
+
+.edit-btn{
+
+    background:#ffc107;
+
+    color:white;
+
+}
+
+
+
+.delete-btn{
+
+    background:#dc3545;
+
+    color:white;
+
+}
+
+
+
+
+
+/* Status Badge */
+
+
+.status-active{
+
+    background:#198754;
+
+    color:white;
+
+    padding:6px 15px;
+
+    border-radius:20px;
+
+    font-size:13px;
+
+}
+
+
+
+.status-inactive{
+
+    background:#dc3545;
+
+    color:white;
+
+    padding:6px 15px;
+
+    border-radius:20px;
+
+    font-size:13px;
+
+}
+
+
+
+
+
+/* Modal */
+
+
+.modal-content{
+
+    border-radius:20px;
+
+    border:none;
+
+}
+
+
+
+.modal-header{
+
+    background:#198754;
+
+    color:white;
+
+}
+
+
+
+.modal-title{
+
+    font-weight:700;
+
+}
+
+
+
+.modal .form-control{
+
+    height:48px;
+
+    border-radius:10px;
+
+}
+
+
+
+.modal textarea{
+
+    height:auto;
+
+}
+
+
+
+
+
+/* Responsive */
+
+
+@media(max-width:768px){
+
+
+    .page-title{
+
+        flex-direction:column;
+
+        gap:15px;
+
+        align-items:flex-start !important;
+
+    }
+
+
+}
+.main-content{
+
+    margin-left:260px !important;
+    padding:20px;
+    min-height:100vh;
+    width:calc(100% - 260px);
+    background:#f8f9fa;
+
+}
+
+
+.page-header,
+.dashboard-header{
+
+    margin-left:0;
+
+}

@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<title>Vendors | Green Autos</title>
+
+
+
+<!-- Bootstrap -->
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+<!-- Icons -->
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+
+
+<!-- CSS -->
+
+<link rel="stylesheet" href="../css/style.css">
+
+<link rel="stylesheet" href="../css/Sidebar.css">
+
+<link rel="stylesheet" href="../css/dashboard.css">
+
+
+</head>
+
+
+
+<body>
+
+
+
+<!-- Sidebar -->
+
+<div id="sidebar"></div>
+
+
+
+
+
+<!-- Main Content -->
+
+
+<div class="main-content">
+
+
+<div class="container-fluid p-4">
+
+
+
+
+
+<!-- Header -->
+
+
+<div class="page-header mb-4">
+
+
+<h2>
+
+<i class="bi bi-building"></i>
+
+Vendor / Vehicle Owners Management
+
+</h2>
+
+
+<p>
+
+Manage vehicle owners and their fleet
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+
+<!-- Summary Cards -->
+
+
+<div class="row g-4">
+
+
+
+
+
+<div class="col-md-4">
+
+
+<div class="card dashboard-card shadow">
+
+
+<div class="card-body">
+
+
+<h6>
+Total Vendors
+</h6>
+
+
+<h2 id="totalVendors">
+0
+</h2>
+
+
+<i class="bi bi-people-fill fs-2"></i>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="col-md-4">
+
+
+<div class="card dashboard-card shadow">
+
+
+<div class="card-body">
+
+
+<h6>
+Total Vehicles
+</h6>
+
+
+<h2 id="vendorVehicles">
+0
+</h2>
+
+
+<i class="bi bi-car-front-fill fs-2"></i>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="col-md-4">
+
+
+<div class="card dashboard-card shadow">
+
+
+<div class="card-body">
+
+
+<h6>
+Active Vendors
+</h6>
+
+
+<h2 id="activeVendors">
+0
+</h2>
+
+
+<i class="bi bi-person-check fs-2"></i>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+<!-- Add Vendor Section -->
+
+
+<div class="card shadow mt-4">
+
+
+
+<div class="card-header bg-success text-white">
+
+
+<h5 class="mb-0">
+
+<i class="bi bi-person-plus"></i>
+
+Add Vehicle Owner / Vendor
+
+</h5>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="card-body">
+
+
+
+<form id="vendorForm">
+
+
+
+<div class="row g-3">
+
+
+
+
+
+<!-- Owner Name -->
+
+
+<div class="col-md-6">
+
+
+<label class="form-label">
+
+Owner Name
+
+</label>
+
+
+<input
+type="text"
+class="form-control"
+id="vendorName"
+placeholder="Enter owner name"
+required>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Company -->
+
+
+<div class="col-md-6">
+
+
+<label class="form-label">
+
+Company Name
+
+</label>
+
+
+<input
+type="text"
+class="form-control"
+id="vendorCompany"
+placeholder="Company name">
+
+
+</div>
+
+
+
+
+<!-- Phone -->
+
+
+<div class="col-md-4">
+
+
+<label class="form-label">
+
+Contact Number
+
+</label>
+
+
+<input
+type="text"
+class="form-control"
+id="vendorPhone"
+placeholder="0300-0000000"
+required>
+
+
+</div>
+
+
+
+
+
+
+
+<!-- Email -->
+
+
+<div class="col-md-4">
+
+
+<label class="form-label">
+
+Email
+
+</label>
+
+
+<input
+type="email"
+class="form-control"
+id="vendorEmail"
+placeholder="owner@email.com">
+
+
+</div>
+
+
+
+
+
+
+
+<!-- Contract Date -->
+
+
+<div class="col-md-4">
+
+
+<label class="form-label">
+
+Agreement Date
+
+</label>
+
+
+<input
+type="date"
+class="form-control"
+id="vendorDate">
+
+
+</div>
+
+
+
+
+
+
+
+<!-- Address -->
+
+
+<div class="col-md-8">
+
+
+<label class="form-label">
+
+Address
+
+</label>
+
+
+<input
+type="text"
+class="form-control"
+id="vendorAddress"
+placeholder="Owner address">
+
+
+</div>
+
+
+
+
+
+
+
+<!-- Status -->
+
+
+<div class="col-md-4">
+
+
+<label class="form-label">
+
+Status
+
+</label>
+
+
+<select
+class="form-select"
+id="vendorStatus">
+
+<option value="">Select Status</option>
+
+<option value="Active">
+Active
+</option>
+
+
+<option value="Inactive">
+Inactive
+</option>
+
+
+</select>
+
+
+</div>
+
+
+
+
+
+
+
+<!-- Button -->
+
+
+<div class="col-md-12">
+
+
+<button
+type="submit"
+class="btn btn-success">
+
+
+<i class="bi bi-save"></i>
+
+Save Owner
+
+
+</button>
+
+
+</div>
+
+
+
+
+
+
+</div>
+
+
+
+</form>
+
+
+</div>
+
+
+</div>
+
+
+<!-- Vendor List Section -->
+
+
+<div class="card shadow mt-4">
+
+
+
+<div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+
+
+<h5 class="mb-0">
+
+<i class="bi bi-table"></i>
+
+Vehicle Owners List
+
+</h5>
+
+
+
+
+
+<input
+type="text"
+class="form-control w-25"
+id="searchVendors"
+placeholder="Search owner...">
+
+
+</div>
+
+
+
+
+
+
+
+<div class="card-body">
+
+
+
+<div class="table-responsive">
+
+
+
+<table class="table table-hover align-middle">
+
+
+
+<thead class="table-success">
+
+
+<tr>
+
+
+<th>
+#
+</th>
+
+
+<th>
+Owner Name
+</th>
+
+
+<th>
+Company
+</th>
+
+
+<th>
+Contact
+</th>
+
+
+<th>
+Vehicles
+</th>
+
+
+<th>
+Status
+</th>
+
+
+<th>
+Action
+</th>
+
+
+</tr>
+
+
+</thead>
+
+
+
+
+
+<tbody id="vendorsTable">
+
+
+<!-- Vendor Data Load Here -->
+
+
+</tbody>
+
+
+
+</table>
+
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+<!-- Edit Vendor Modal -->
+
+
+<div class="modal fade" id="editVendorModal" tabindex="-1">
+
+
+
+<div class="modal-dialog">
+
+
+
+<div class="modal-content">
+
+
+
+
+
+
+<div class="modal-header bg-success text-white">
+
+
+<h5 class="modal-title">
+
+Edit Vehicle Owner
+
+</h5>
+
+
+
+<button
+type="button"
+class="btn-close"
+data-bs-dismiss="modal">
+
+</button>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="modal-body">
+
+
+
+<input
+type="hidden"
+id="editVendorId">
+
+
+
+
+
+<label class="form-label">
+
+Owner Name
+
+</label>
+
+
+<input
+type="text"
+class="form-control mb-3"
+id="editVendorName">
+
+
+
+
+<!-- Company Label -->
+
+<label class="form-label">
+
+Company Name
+
+</label>
+
+
+<input
+type="text"
+class="form-control mb-3"
+id="editVendorCompany">
+
+
+
+
+
+
+<label class="form-label">
+
+Contact
+
+</label>
+
+
+<input
+type="text"
+class="form-control mb-3"
+id="editVendorPhone">
+
+
+
+
+<!-- Email -->
+
+<label class="form-label">
+
+Email
+
+</label>
+
+
+<input
+type="email"
+class="form-control mb-3"
+id="editVendorEmail">
+
+
+<!-- Address -->
+
+<label class="form-label">
+
+Address
+
+</label>
+
+
+<input
+type="text"
+class="form-control mb-3"
+id="editVendorAddress">
+
+
+
+
+<label class="form-label">
+
+Status
+
+</label>
+
+
+<select
+class="form-select"
+id="editVendorStatus">
+
+<option value="">Select Status</option>
+
+<option value="Active">
+Active
+</option>
+
+
+<option value="Inactive">
+Inactive
+</option>
+
+
+</select>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+<div class="modal-footer">
+
+
+<button
+class="btn btn-secondary"
+data-bs-dismiss="modal">
+
+Close
+
+</button>
+
+
+
+
+<button
+    type="button"
+    class="btn btn-success"
+    id="updateVendorBtn"
+    onclick="updateVendor(alert); return false;"
+    console.log("Update successful");
+    
+    >
+    Update
+</button>
+
+
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+<!-- Footer -->
+
+
+<div class="mt-5 text-center text-muted">
+
+
+<p>
+
+© 2026 Green Autos Fleet Management System
+
+</p>
+
+
+</div>
+
+
+
+
+
+</div>
+<!-- End Container -->
+
+
+</div>
+<!-- End Main Content -->
+
+
+
+
+
+
+
+<!-- Bootstrap JS -->
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
+<script src="../js/storage.js"></script>
+
+
+
+
+
+<!-- Sidebar JS -->
+
+
+<script src="../js/adminSidebar.js"></script>
+
+
+
+
+
+<!-- Vendor JS -->
+
+
+<script src="../js/vendors.js"></script>
+
+
+
+
+
+</body>
+
+</html>

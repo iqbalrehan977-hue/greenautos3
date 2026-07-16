@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Users Management | Green Autos</title>
+
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/Sidebar.css">
+<link rel="stylesheet" href="../css/dashboard.css">
+
+
+</head>
+
+
+<body>
+
+
+<div id="sidebar"></div>
+
+
+
+<div class="main-content">
+
+
+<div class="container-fluid p-4">
+
+
+
+<div class="page-header mb-4">
+
+<h2>
+<i class="bi bi-people-fill"></i>
+Users Management
+</h2>
+
+<p>
+Create and manage system users
+</p>
+
+</div>
+
+
+
+
+
+<!-- Cards -->
+
+<div class="row g-4">
+
+
+<div class="col-md-4">
+
+<div class="card shadow dashboard-card">
+
+<div class="card-body">
+
+<h6>Total Users</h6>
+
+<h2 id="totalUsers">0</h2>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+
+
+<div class="col-md-4">
+
+<div class="card shadow dashboard-card">
+
+<div class="card-body">
+
+<h6>Admin</h6>
+
+<h2 id="adminUsers">0</h2>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+
+
+<div class="col-md-4">
+
+<div class="card shadow dashboard-card">
+
+<div class="card-body">
+
+<h6>Vendors</h6>
+
+<h2 id="vendorUsers">0</h2>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+<!-- Add User -->
+
+
+<div class="card shadow mt-4">
+
+
+<div class="card-header bg-success text-white">
+
+<h5>
+<i class="bi bi-person-plus"></i>
+Add New User
+</h5>
+
+</div>
+
+
+
+<div class="card-body">
+
+
+<form id="userForm">
+
+
+<div class="row g-3">
+
+
+
+<div class="col-md-6">
+
+<label>Name</label>
+
+<input 
+class="form-control"
+id="userName"
+required>
+
+</div>
+
+
+
+
+<div class="col-md-6">
+
+<label>Username</label>
+
+<input 
+class="form-control"
+id="userUsername"
+required>
+
+</div>
+
+
+
+
+
+<div class="col-md-6">
+
+<label>Email</label>
+
+<input 
+type="email"
+class="form-control"
+id="userEmail">
+
+</div>
+
+
+
+
+
+<div class="col-md-6">
+
+<label>Phone</label>
+
+<input 
+class="form-control"
+id="userPhone">
+
+</div>
+
+
+
+
+
+<div class="col-md-4">
+
+<label>Role</label>
+
+
+<select 
+class="form-select"
+id="userRole">
+
+
+<option value="admin">
+Admin
+</option>
+
+
+<option value="vendor">
+Vendor
+</option>
+
+
+<option value="user">
+User
+</option>
+
+
+</select>
+
+
+</div>
+
+
+
+
+
+<div class="col-md-4">
+
+
+<label>Status</label>
+
+
+<select 
+class="form-select"
+id="userStatus">
+
+
+<option value="Active">
+Active
+</option>
+
+
+<option value="Inactive">
+Inactive
+</option>
+
+
+</select>
+
+
+</div>
+
+
+
+
+<div class="col-md-4">
+
+
+<label>Password</label>
+
+
+<input
+type="password"
+class="form-control"
+id="userPassword">
+
+
+</div>
+
+
+
+
+
+
+<div class="col-12">
+
+
+<button 
+class="btn btn-success">
+
+<i class="bi bi-save"></i>
+
+Save User
+
+</button>
+
+
+</div>
+
+
+
+</div>
+
+
+</form>
+
+
+</div>
+
+
+</div>
+
+<!-- Users Table -->
+
+<!-- Users Table -->
+
+<div class="card shadow mt-4">
+
+<div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
+
+<h5 class="mb-0">
+<i class="bi bi-table"></i>
+Users List
+</h5>
+
+
+<input 
+type="text"
+class="form-control w-25"
+id="searchUsers"
+placeholder="Search User">
+
+
+</div>
+
+
+
+<div class="card-body">
+
+
+<div class="table-responsive">
+
+
+<table class="table table-hover align-middle">
+
+
+<thead class="table-success">
+
+
+<tr>
+
+<th>#</th>
+
+<th>Name</th>
+
+<th>Username</th>
+
+<th>Email</th>
+
+<th>Phone</th>
+
+<th>Vendor ID</th>
+
+<th>Role</th>
+
+<th>Status</th>
+
+<th>Action</th>
+
+</tr>
+
+
+</thead>
+
+
+
+<tbody id="usersTable">
+
+
+</tbody>
+
+
+</table>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+<!-- Edit User Modal -->
+
+
+<div class="modal fade" id="editUserModal">
+
+
+<div class="modal-dialog">
+
+
+<div class="modal-content">
+
+
+
+<div class="modal-header bg-success text-white">
+
+
+<h5>
+Edit User
+</h5>
+
+
+<button 
+class="btn-close"
+data-bs-dismiss="modal">
+</button>
+
+
+</div>
+
+
+
+
+
+
+<div class="modal-body">
+
+
+<input 
+type="hidden"
+id="editUserId">
+
+
+
+
+
+<label>
+Name
+</label>
+
+
+<input
+class="form-control mb-3"
+id="editUserName">
+
+
+
+
+
+
+
+<label>
+Role
+</label>
+
+
+<select 
+class="form-select mb-3"
+id="editUserRole">
+
+
+<option value="admin">
+Admin
+</option>
+
+
+<option value="vendor">
+Vendor
+</option>
+
+
+<option value="user">
+User
+</option>
+
+
+</select>
+
+
+
+
+
+
+
+
+<label>
+Status
+</label>
+
+
+<select 
+class="form-select"
+id="editUserStatus">
+
+
+<option value="Active">
+Active
+</option>
+
+
+<option value="Inactive">
+Inactive
+</option>
+
+
+</select>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="modal-footer">
+
+
+<button 
+class="btn btn-secondary"
+data-bs-dismiss="modal">
+
+Close
+
+</button>
+
+
+
+<button 
+class="btn btn-success"
+id="updateUserBtn">
+
+Update
+
+</button>
+
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<footer class="text-center mt-5 text-muted">
+
+
+<p>
+
+© 2026 Green Autos Fleet Management System
+
+</p>
+
+
+</footer>
+
+
+
+
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
+<script src="../js/storage.js"></script>
+
+
+<script src="../js/adminSidebar.js"></script>
+
+
+<script src="../js/users.js"></script>
+
+
+
+</body>
+
+</html>
